@@ -9,8 +9,8 @@ const EditToDo = () => {
 	const params = useParams();
 	const dispatch = useDispatch();
 	const todoApp = useSelector((store) => store.todoApp);
-	console.log(params.id);
 	const navigate = useNavigate();
+	const todoList = () => navigate('/');
 	const existingToDo = todoApp.filter((todo) => todo.id === params.id);
 	const { title, text } = existingToDo[0];
 	const [values, setValues] = useState({
@@ -26,7 +26,7 @@ const EditToDo = () => {
 				text: values.text,
 			})
 		);
-		navigate('/');
+		todoList();
 	};
 	return (
 		<div className='container p-4 rounded-md drop-shadow-lg mt-10  flex flex-col justify-center bg-white w-[17rem]'>
@@ -43,7 +43,10 @@ const EditToDo = () => {
 				maxLength='100'
 			/>
 
-			<Button onClick={handleEditToDO}>Edit</Button>
+			<div className='flex mx-auto'>
+				<Button onClick={handleEditToDO}>Edit</Button>
+				<Button onClick={todoList}>Cancel</Button>
+			</div>
 		</div>
 	);
 };

@@ -23,7 +23,6 @@ const AddToDo = () => {
 				text: values.text,
 			})
 		);
-		console.log(values);
 		todoApp();
 	};
 	return (
@@ -41,7 +40,7 @@ const AddToDo = () => {
 				maxLength='100'
 			/>
 			<div className='flex mx-2'>
-				<Button onClick={handleAddToDo}>Submit</Button>
+				<Button onClick={handleAddToDo}>Add</Button>
 				<Button onClick={todoApp}>Cancel</Button>
 			</div>
 		</div>

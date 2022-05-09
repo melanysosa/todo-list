@@ -25,14 +25,17 @@ const ToDoList = () => {
 					<div className=' font-normal text-white  '>{todo.text}</div>
 				</div>
 
-				<div className='flex text-lime-50 justify-end'>
+				<div className='flex  text-lime-50 justify-end'>
 					<Link to={`edit-todo/${todo.id}`}>
 						{' '}
-						<button>
+						<button className='px-1'>
 							<AiOutlineEdit />{' '}
 						</button>
 					</Link>
-					<button onClick={() => handleRemoveToDo(todo.id)}>
+					<button
+						className='px-1'
+						onClick={() => handleRemoveToDo(todo.id)}
+					>
 						<AiOutlineDelete />{' '}
 					</button>
 				</div>
