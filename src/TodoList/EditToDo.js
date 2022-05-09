@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import Button from '../../components/button/Button';
-import TextField from '../../components/textField/TextField';
-import { editTodo } from '../../redux/ToDoSlice';
+import Button from '../components/button/Button';
+import TextField from '../components/textField/TextField';
+import { editTodo } from '../redux/ToDoSlice';
 
 const EditToDo = () => {
 	const params = useParams();
@@ -11,11 +11,11 @@ const EditToDo = () => {
 	const todoApp = useSelector((store) => store.todoApp);
 	console.log(params.id);
 	const navigate = useNavigate();
-	const existingToDo= todoApp.filter((todo) => todo.id === params.id);
+	const existingToDo = todoApp.filter((todo) => todo.id === params.id);
 	const { title, text } = existingToDo[0];
 	const [values, setValues] = useState({
 		title,
-		text
+		text,
 	});
 	const handleEditToDO = () => {
 		setValues({ title: '', text: '' });
@@ -29,19 +29,20 @@ const EditToDo = () => {
 		navigate('/');
 	};
 	return (
-		<div className='mt-10  mx-auto'>
+		<div className='container p-4 rounded-md drop-shadow-lg mt-10  flex flex-col justify-center bg-white w-[17rem]'>
 			<TextField
-				label={'Title'}
 				value={values.title}
 				onChange={(e) => setValues({ ...values, title: e.target.value })}
-				inputProps={{ type: 'tex', placeholder: 'Jhon Doe' }}
+				inputProps={{ type: 'tex', placeholder: 'Edit title' }}
+				maxLength='20'
 			/>
 			<TextField
-				label={'text'}
 				value={values.text}
 				onChange={(e) => setValues({ ...values, text: e.target.value })}
-				inputProps={{ type: 'text', placeholder: 'text' }}
+				inputProps={{ type: 'text', placeholder: 'Edit Text' }}
+				maxLength='100'
 			/>
+
 			<Button onClick={handleEditToDO}>Edit</Button>
 		</div>
 	);

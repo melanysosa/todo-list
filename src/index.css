@@ -2,25 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    background-color: black;
-    background-size: cover;
 
-}
-.inputGeneral{
-    text-indent: 4%;
-    
+body {
+  display: flex;
+  justify-content: center;
 
-   
+  background-color: rgb(0, 0, 0);
+  background-size: cover;
 }
-@media only screen and (max-width: 450px) {
-  .app {
-    
-    
-  }
-  .containerText{
-    width: 80%;
-    word-wrap: break-word;
-    
-  }
+.inputGeneral {
+  text-indent: 4%;
 }

@@ -1,14 +1,15 @@
 import { Route, Routes } from 'react-router-dom';
-import ToDoList from './features/users/ToDOList'
-import AddToDo from './features/users/AddToDo';
-import EditToDo from './features/users/EditToDo';
-
+import ToDoList from './TodoList/ToDOList';
+import AddToDo from './TodoList/AddToDo';
+import EditToDo from './TodoList/EditToDo';
 
 function App() {
-  return (
-		<div className='w-full h-full flex flex-col justify-center items-center mt-[100px] mb-[100px] '>
+	return (
+		<div className='  flex justify-center w-[100%] mt-28 '>
 			<div>
-				<h1 className='text-center text-lime-50 text-3xl'>ToDo list</h1>
+				<h1 className='text-center text-white bg-pink-500 text-2xl font-semibold rounded-md p-2'>
+					ToDo list
+				</h1>
 				<Routes>
 					<Route path='/' element={<ToDoList />} />
 					<Route path='add-todo' element={<AddToDo />} />
@@ -16,7 +17,7 @@ function App() {
 				</Routes>
 			</div>
 		</div>
-  );
+	);
 }
 
 export default App;

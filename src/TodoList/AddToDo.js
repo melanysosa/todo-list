@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import Button from '../../components/button/Button';
-import TextField from '../../components/textField/TextField';
+import Button from '../components/button/Button';
+import TextField from '../components/textField/TextField';
 import { v4 as uuidv4 } from 'uuid';
-import { addTodo } from '../../redux/ToDoSlice';
+import { addTodo } from '../redux/ToDoSlice';
 
 const AddToDo = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const todoApp = () => navigate('/');;
+	const todoApp = () => navigate('/');
 	const [values, setValues] = useState({
 		title: '',
 		text: '',
 	});
-	const handleAddToDo= () => {
+	const handleAddToDo = () => {
 		setValues({ title: '', text: '' });
 		dispatch(
 			addTodo({
@@ -27,20 +27,18 @@ const AddToDo = () => {
 		todoApp();
 	};
 	return (
-		<div className='mt-10  flex flex-col justify-center'>
+		<div className='container p-4 rounded-md mt-10  flex flex-col justify-center bg-white '>
 			<TextField
-				label={'Title'}
 				value={values.title}
 				onChange={(e) => setValues({ ...values, title: e.target.value })}
 				inputProps={{ type: 'text', placeholder: 'Title' }}
 				maxLength='20'
 			/>
 			<TextField
-				label={'Text'}
 				value={values.text}
 				onChange={(e) => setValues({ ...values, text: e.target.value })}
-				inputProps={{ type: 'text', placeholder: 'Text' }}
-				maxLength='50'
+				inputProps={{ type: 'text', placeholder: 'ToDo' }}
+				maxLength='100'
 			/>
 			<div className='flex mx-2'>
 				<Button onClick={handleAddToDo}>Submit</Button>
