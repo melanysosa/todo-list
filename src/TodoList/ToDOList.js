@@ -22,7 +22,9 @@ const ToDoList = () => {
 					<div className='  font-bold text-lg text-white  '>
 						{todo.title}
 					</div>
-					<div className=' font-normal text-white  '>{todo.text}</div>
+					<div className=' font-normal text-white whitespace-pre '>
+						{todo.text}
+					</div>
 				</div>
 
 				<div className='flex  text-lime-50 justify-end'>
@@ -44,9 +46,15 @@ const ToDoList = () => {
 
 	return (
 		<div className=' w-[17rem] md:w-screen md:container'>
-			<Link to={'/add-todo'}>
-				<Button>Add todo list</Button>
-			</Link>
+			
+				 <div className="flex justify-center">
+		 <Button >
+		  <Link to={"/add-todo"} >
+        Add todo list
+      </Link>
+	  </Button>
+	  </div>
+			
 			<div className='md:grid md:grid-cols-2 gap-2'>
 				{todoApp.length ? (
 					renderCard()

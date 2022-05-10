@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import Button from '../components/button/Button';
-import TextField from '../components/textField/TextField';
+import Textarea from '../components/Textarea/Textarea';
 import { editTodo } from '../redux/ToDoSlice';
+import Input from '../components/Input/Input';
 
 const EditToDo = () => {
 	const params = useParams();
@@ -30,17 +31,15 @@ const EditToDo = () => {
 	};
 	return (
 		<div className='container p-4 rounded-md drop-shadow-lg mt-10  flex flex-col justify-center bg-white w-[17rem]'>
-			<TextField
+			<Input
 				value={values.title}
 				onChange={(e) => setValues({ ...values, title: e.target.value })}
-				inputProps={{ type: 'tex', placeholder: 'Edit title' }}
+				inputProps={{ type: 'text', placeholder: 'Title' }}
 				maxLength='20'
 			/>
-			<TextField
+			<Textarea
 				value={values.text}
 				onChange={(e) => setValues({ ...values, text: e.target.value })}
-				inputProps={{ type: 'text', placeholder: 'Edit Text' }}
-				maxLength='100'
 			/>
 
 			<div className='flex mx-auto'>

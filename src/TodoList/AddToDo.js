@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Button from '../components/button/Button';
-import TextField from '../components/textField/TextField';
 import { v4 as uuidv4 } from 'uuid';
 import { addTodo } from '../redux/ToDoSlice';
+import Textarea from '../components/Textarea/Textarea';
+import Input from '../components/Input/Input'
 
 const AddToDo = () => {
 	const dispatch = useDispatch();
@@ -27,17 +28,15 @@ const AddToDo = () => {
 	};
 	return (
 		<div className='container p-4 rounded-md mt-10  flex flex-col justify-center bg-white '>
-			<TextField
+			<Input
 				value={values.title}
 				onChange={(e) => setValues({ ...values, title: e.target.value })}
 				inputProps={{ type: 'text', placeholder: 'Title' }}
 				maxLength='20'
 			/>
-			<TextField
+			<Textarea
 				value={values.text}
 				onChange={(e) => setValues({ ...values, text: e.target.value })}
-				inputProps={{ type: 'text', placeholder: 'ToDo' }}
-				maxLength='100'
 			/>
 			<div className='flex mx-2'>
 				<Button onClick={handleAddToDo}>Add</Button>
